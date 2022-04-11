@@ -1,1 +1,60 @@
- *{margin: 0px; padding: 0px;}
+*{
+    margin: 0px; padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --accent-color:linear-gradient( 45deg,rgb(98, 0, 255),rgb(21, 39, 237));
+    --background-color:linear-gradient(45deg,black,#040e52) no-repeat;
+    --light-color:wheat;
+    
+}
+body{
+   background: var(--background-color);
+   min-height: 100vh;
+}
+
+.main{
+    width: 80%;
+    max-width:1000px;
+    margin:0 auto;
+}
+
+/* utility class for centering the stuff in a flexbox */
+.c-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar{
+    margin: 0.5em 0;
+    font-size:1.3rem;
+    flex-wrap: wrap;
+}
+
+.searchbar{
+    gap:1em;
+    background: var(--accent-color);
+    padding:0.7em 2em 0.7em 1em; 
+    border-radius: 0.5em;
+}
+
+.search-txt{
+    color:var(--light-color);
+}
+
+#search-box{
+    height:2.2em;
+    border-radius: 0.5em;
+}
+
+.searchbtn{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.brand{
+    font-family: 'Rubik Wet Paint', cursive;
+    color:var(--light-color);
+}
