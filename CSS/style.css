@@ -1,13 +1,23 @@
 *{
     margin: 0px; padding: 0px;
     box-sizing: border-box;
+    color:white;
 }
 
 :root{
-    --accent-color:linear-gradient( 45deg,rgb(98, 0, 255),rgb(21, 39, 237));
+    --accent-gradient:linear-gradient( 45deg,rgb(98, 0, 255),rgb(21, 39, 237));
+    --accent-color:rgb(21, 39, 237);
     --background-color:linear-gradient(45deg,black,#040e52) no-repeat;
-    --light-color:wheat;
+    --light-color:white;
+    --light-color2:#333;
+    --dark-color:black;
     
+}
+.round-box{
+    border-radius: 0.5em;
+    background:var(--light-color2);
+    border: none;
+
 }
 body{
    background: var(--background-color);
@@ -23,20 +33,26 @@ body{
 /* utility class for centering the stuff in a flexbox */
 .c-flex{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+}
+
+/* utility class to make the flex-direction column */
+.d-flex{
+    flex-direction: column;
 }
 
 .navbar{
     margin: 0.5em 0;
     font-size:1.3rem;
-    flex-wrap: wrap;
+    gap:0.5em;
+    justify-content: space-between;
 }
 
 .searchbar{
     gap:1em;
-    background: var(--accent-color);
-    padding:0.7em 2em 0.7em 1em; 
+    background: var(--accent-gradient);
+    padding:0.7em; 
     border-radius: 0.5em;
 }
 
@@ -46,7 +62,7 @@ body{
 
 #search-box{
     height:2.2em;
-    border-radius: 0.5em;
+    padding:0.3em;
 }
 
 .searchbtn{
@@ -56,5 +72,72 @@ body{
 
 .brand{
     font-family: 'Rubik Wet Paint', cursive;
-    color:var(--light-color);
+    color:var(--accent-color);
+    text-align: justify;
 }
+
+/* Add notes start here */
+.container{
+    background-color: var(--light-color);
+    padding:0.5em;
+    border-radius: 1em;
+    gap:0.1em;
+    font-size: 1.5rem;
+}
+.h-secondary{
+    color:var(--accent-color);
+}
+
+.note-title-label{
+    color:rgb(0, 0, 0);
+}
+.create-note{
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--accent-gradient);
+}
+
+
+#note-title-box{
+    height: 2em;
+    text-align: center;
+}
+#note-content-box{
+    size: 10em;
+    padding: 0.5em;;
+}
+
+.add-note-btn{
+    background: var(--accent-gradient);
+    font-size: 1.4rem;
+    padding:0.5em 1em;
+    cursor: pointer;
+}
+.add-note-btn:hover{
+    border: 1px solid var(--accent-color);
+    background: white;
+    color:var(--accent-color);
+}
+
+@media(max-width:450px){
+    .main{
+        width: 100%;
+        padding:0 0.5em;
+    }
+    .navbar{
+        flex-wrap: wrap;
+    }
+    .brand{
+        text-align: center;
+    }
+    .searchbar{
+        justify-content: space-evenly;
+    }
+    .create-note{
+        display: block;
+    }
+    .searchbar{
+        width: 100%;
+    }
+}
+
