@@ -6,6 +6,7 @@
 
 :root{
     --accent-gradient:linear-gradient( 45deg,rgb(98, 0, 255),rgb(21, 39, 237));
+    --secondary-background-gradient:linear-gradient(135deg, black, #333);
     --accent-color:rgb(21, 39, 237);
     --background-color:linear-gradient(45deg,black,#040e52) no-repeat;
     --light-color:white;
@@ -78,7 +79,7 @@ body{
 
 /* Add notes start here */
 .container{
-    background-color: var(--light-color);
+    background: var(--secondary-background-gradient);
     padding:0.5em;
     border-radius: 1em;
     gap:0.1em;
@@ -118,6 +119,57 @@ body{
     background: white;
     color:var(--accent-color);
 }
+/* Note container code starts here */
+
+.note-container{
+    margin:1em 0.5em;
+    padding:1em;
+    display:flex;
+    gap:0.2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    background: var(--secondary-background-gradient);
+    border-radius: 0.5em;
+}
+/* temporary demo note */
+
+
+.note-heading{
+    background: var(--accent-gradient);
+    border-radius:0.5em 0.5em 0.0em 0.0em ;
+    padding:0.2em 0.5em;
+    text-align: center;
+}
+.content{
+    background: var(--light-color);
+    color:black;
+    border-radius: 0em 0em 0.5em 0.5em;
+    padding:0.2em 0.5em;
+}
+.note{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 13em;
+    border-radius: 2em;
+    padding: 0.1em;
+}
+/* .note::before{
+    content: "x";
+    position: absolute;
+    right:-1em;
+    top:-1em;
+    width: 2em;
+    height: 2em;
+    background-color: red;
+    color:white;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 @media(max-width:450px){
     .main{
@@ -138,6 +190,12 @@ body{
     }
     .searchbar{
         width: 100%;
+    }
+    .note{
+        width: 10em;
+    }
+    .note-container{
+        padding: 0.1em;
     }
 }
 
