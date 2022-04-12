@@ -1,45 +1,27 @@
-console.log('This is live')
-// const searchBox = document.getElementById('search-box')
+import Note from './notes.js'
 
+console.log('This is live')
+
+// const searchBox = document.getElementById('search-box')
+// this is the add note button whose click event add the note to the container
 const createNoteBtn = document.querySelector('.add-note-btn')
+//This is the container whose children are going to be notes.
 let parent = document.querySelector('.note-container')
 
+//Class that maintains the properties and methods of a note like initialising values, creating
+//childrens adding it to the DOM and deleting it.  
 
-class Note {
-    constructor(title,content){
-        this.title = title
-        this.content = content
-    }
 
-     createNote() {
-        let note = document.createElement('div')
-        note.className = 'note'
-        let heading = document.createElement('h2')
-        heading.className = 'note-heading'
-        heading.innerText = this.title
-        let noteText = document.createElement('div')
-        noteText.className = 'content'
-        noteText.innerText = this.content
-        note.append(heading)
-        note.append(noteText)
-        return note;
-    }
-
-    pasteNote(_parent){
-        _parent.append(this.createNote())
-    }
-
-    deleteNote(){
-
-    }
-}
+    
+   
 
 let note1 = new Note('hello world','also some extra stuff with hello world')
 createNoteBtn.addEventListener('click',()=>{
    let noteTitle = document.getElementById('note-title-box').value;
    let noteContent = document.getElementById('note-content-box').value;
-   let note2 = new Note(noteTitle,noteContent);
+   let note2 = new Note(noteTitle,noteContent,parent);
    note2.createNote();
-   console.log(parent)
-   note2.pasteNote(parent)
+   note2.pasteNote();
+   note2.deleteNote();
+   
 })

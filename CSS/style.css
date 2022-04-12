@@ -155,21 +155,19 @@ body{
     border-radius: 2em;
     padding: 0.1em;
 }
-/* .note::before{
-    content: "x";
+.crossBtn{
     position: absolute;
     right:-1em;
     top:-1em;
     width: 2em;
     height: 2em;
-    background-color: red;
-    color:white;
+    background-color: rgba(0, 0, 0, 0.234);
     border-radius: 50%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 @media(max-width:530px){
     .main{
