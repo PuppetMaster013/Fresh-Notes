@@ -1,41 +1,28 @@
+import utility from "./utility.js";
+
 export default class Note {
-    constructor(title,content,parent){
-        this.parent = parent
-        this.title = title
-        this.content = content
-        this.crossBtn = document.createElement('button')
-        this.crossBtn.className = "crossBtn"
-        this.crossBtn.innerText = '⛔'
-    }
-    
-     createNote() {
-        let note = document.createElement('div')
-        note.className = 'note'
-      
-        let heading = document.createElement('h2')
-        heading.className = 'note-heading'
-        heading.innerText = this.title
+  static count = 0;
+  constructor(title, content) {
+    this.title = title;
+    this.content = content;
+    this.myId = `note-${this.title}-${count}`;
+    count += 1;
+    this.noteElement = null;
+    this.state = "active";
+  }
 
-        let noteText = document.createElement('div')
-        noteText.className = 'content'
-        noteText.innerText = this.content
-
-        note.append(this.crossBtn)
-        note.append(heading)
-        note.append(noteText)
-        return note;
-    }
-    //Adds the note to the DOM in the element note-container
-    pasteNote(){
-        this.parent.append(this.createNote()) 
-
-    }
-    // deletes the note
-    deleteNote(){
-        this.crossBtn.addEventListener('click',(e)=>{
-            console.log(e.target)
-            })
-        }
-
-    }
-
+  createElement(func) {
+    // utility.addElement()
+    let element = utility.addElement("div", "note", "");
+    element.setAttribute("id", `note${count - 1}`);
+    let crossBtn = utility.addElement("button", "crossBtn", "⛔");
+    let noteHeading = utility.addElement("h2", "note-heading", this.title);
+    let noteContent = utility.addElement("div", "content", this.content);
+    crossBtn.addEventListener("click", func);
+    element.append(crossBtn);
+    element.append(noteHeading);
+    element.append(noteContent);
+    this.noteHeading = element;
+    return this.noteHeading;
+  }
+}
