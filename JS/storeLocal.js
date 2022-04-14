@@ -14,21 +14,25 @@ class storeLocal {
   }
   // removes the note from the localStorage.
   deleteLocal(noteObj) {
-    localStorage.removeItem(noteObj.myId);
+    console.log(noteObj);
+    localStorage.removeItem(noteObj);
   }
   updateLocal(noteObj) {
     this.deleteLocal(noteObj);
     this.addLocal(noteObj);
   }
   // takes an array and puts all the notes as values in that array.
-  retrieveLocal(array = []) {
-    let keys = noteObj.keys(localStorage);
-    keys.forEach((value) => {
-      array.push(JSON.parse(value));
-    });
+  retrieveLocal(array) {
+    let keys = Object.keys(localStorage);
+    // console.log(localStorage.getItem(keys[0]));
+    keys.forEach(key=>{
+      console.log(JSON.parse(localStorage.getItem(key)));
+      array.push(JSON.parse(localStorage.getItem(key)));
+    })
   }
+  
 }
 
 const local = new storeLocal();
-noteObj.freeze(local);
+Object.freeze(local);
 export default local;
