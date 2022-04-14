@@ -5,6 +5,9 @@ export default class utilityC{
         let element = document.createElement(tag);
         element.className = itsClass;
         element.innerText= content;
+        // if(itsClass == "note-heading"||itsClass == "content"){
+        //     element.setAttribute("contenteditable","true")
+        // }
         return element;
     }
 }
