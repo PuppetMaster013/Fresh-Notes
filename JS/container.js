@@ -17,7 +17,24 @@ export default class noteContainer {
   }
   //Hides the noteElement from the DOM without removing it   
 
-  hideFromDom(noteElement) {
-    noteElement.style.display = "none";
+  hideFromDom(noteElementId) {
+    let childElements = Array.from(this.rootElement.children)
+    childElements?.forEach(noteElement => {
+      if (noteElement.id == noteElementId){
+         noteElement.style.display = "none";
+         return;
+      }
+    })
+    // 
+  }
+  showInDom(noteElementId) {
+    let childElements = Array.from(this.rootElement.children)
+    childElements?.forEach(noteElement => {
+      if (noteElement.id == noteElementId){
+         noteElement.style.display = "block";
+         return;
+      }
+    })
+    // 
   }
 }

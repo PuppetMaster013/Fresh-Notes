@@ -10,6 +10,4 @@ export default class Note {
     // this.noteElement = null;
     this.state = "active";
   }
-
-  
 }

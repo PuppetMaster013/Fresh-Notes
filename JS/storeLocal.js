@@ -26,7 +26,6 @@ class storeLocal {
     let keys = Object.keys(localStorage);
     // console.log(localStorage.getItem(keys[0]));
     keys.forEach(key=>{
-      console.log(JSON.parse(localStorage.getItem(key)));
       array.push(JSON.parse(localStorage.getItem(key)));
     })
   }

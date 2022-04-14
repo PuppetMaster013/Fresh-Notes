@@ -8,6 +8,11 @@ export default class noteManager {
     static noteObjArr = [];
   constructor() {
    
+      this.searchBar = document.getElementById("search-box");
+      this.searchBar.addEventListener("input",(e)=>{
+          // this.serachQuery = /e.target.value
+          this.showSeachResult(e.target.value)
+      })
       this.addBtn = document.querySelector(".add-note-btn");
       this.noteCont = document.querySelector(".note-container");
       local.retrieveLocal(noteManager.noteObjArr);
@@ -33,6 +38,20 @@ export default class noteManager {
         local.addLocal(addedNote);
       })
   }
+  showSeachResult(query){
+   
+    noteManager.noteObjArr.forEach(noteObj=>{
+      console.log(noteObj)
+      if(!noteObj.title.includes(query)){
+        this.noteContainer.hideFromDom(noteObj.myId)
+        console.log(noteObj.myId)
+      }
+      else{
+        this.noteContainer.showInDom(noteObj.myId)
+      }
+    })
+  }
+  
   createElement(func,objNote) {
     // utility.addElement()
     let element = utility.addElement("div", "note", "");
@@ -52,6 +71,7 @@ export default class noteManager {
       {
         console.log(noteObj.myId)
         local.deleteLocal(noteObj.myId);
+        return;
       }
     })
      e.target.parentNode.parentNode.removeChild(e.target.parentNode);
